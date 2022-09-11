@@ -1,0 +1,11 @@
+def ab(file_name):
+     label_col = 0
+     with open(file_name) as csv_file:
+          csv_reader = csv.reader(csv_file, delimiter=',')
+          line_count = 0
+          for row in csv_reader:
+              if line_count == 0:
+                 for col in row:
+                     if 'output=' in col:
+                        label_col = row.index(col)
+     print label_col
